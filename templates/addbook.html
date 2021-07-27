@@ -1,0 +1,48 @@
+{%extends 'base.html'%}
+{% block main_content %}
+    <p> Add the details of the book to be added to the inventory</p>
+    
+    <form action='' method='POST' enctype="multipart/form-data" novalidate>
+        {{form.hidden_tag()}}
+        {{form.book_name.label}}
+        {{form.book_name()}}
+        {% for error in form.book_name.errors %}
+            {{error}}
+        {%endfor%}
+        <br>
+        {{form.price.label}}
+        {{form.price()}}
+        {% for error in form.price.errors %}
+            {{error}}
+        {%endfor%}
+        <br>
+        {{form.genre.label}}
+        {{form.genre()}}
+        {% for error in form.genre.errors %}
+            {{error}}
+        {%endfor%}
+        
+        <br>
+        {{form.description.label}}
+        {{form.description()}}
+        {% for error in form.description.errors%}
+            {{error}}
+        {%endfor%}
+        <br>
+        {{form.author_name.label}}
+        {{form.author_name()}}
+        {% for error in form.author_name.errors%}
+            {{error}}
+        {%endfor%}
+        <br>
+        {{form.cover.label}}
+        {{form.cover()}}
+        {%for error in form.cover.errors%}
+            {{error}}
+        {%endfor%}
+        <br>
+        {{form.submit()}}
+    </form>
+
+{%endblock%}
+

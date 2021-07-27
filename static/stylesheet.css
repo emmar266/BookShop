@@ -1,0 +1,271 @@
+* {
+    color: #66fcf1;
+    font-family:Georgia, 'Times New Roman', Times, serif;
+}
+body{
+    margin:0 auto;
+    background-color: rgb(0, 0, 0);
+
+
+}
+main {
+    padding: 2em;    
+    margin:8em;
+    background-color:rgb(7, 7, 7);
+    margin-top:0;
+    margin-bottom:0;
+
+}
+
+
+footer {
+    background-color:#1f2833;
+    color:rgb(0,195,255);
+    padding: 1em 1em;
+    text-align:center;
+}
+#_nav{
+    background-color: #1f2833;
+    padding:.1em;
+    padding-top:1em;
+    float:right;
+    padding-right:2em;
+    font-size: 1em;
+}
+#_nav label{
+    background-color: #1f2833;
+    padding-top:0;
+    color: white;
+}
+/*
+form {
+    border: 1px solid blue;
+    padding: 2em;
+    margin: 2em auto;
+}
+    
+label {
+    float: left;
+    width: 5em;
+    text-align: right;
+    clear: left;
+    margin-right: 1em;
+}
+*/    
+input[type="text"] {
+    margin-bottom: 1em;
+}
+    
+img {
+    display: block;
+}
+/*
+nav {
+    overflow:hidden;
+    font-size:1.2em;
+    margin:0;
+    padding:0;
+
+}
+nav > ul {
+    list-style-type:none;
+    margin: 0;
+    padding: .1em;
+    overflow: hidden;
+    background-color: #1f2833;
+
+    width:100%;
+}
+nav a {
+    float:left;
+    text-align:center;
+    text-decoration: none;
+}
+nav > li {
+    float:left;
+
+}
+li > a {
+    display:block;
+    columns: #6f6f71;
+    background-color: #1f2833;
+    text-align: center;
+    padding: 1em .6em; 
+    color: #66fcf1;
+}
+li a:hover {
+    background-color: #45a29e;
+    color:black;
+}
+*/
+textarea {
+    resize:none;
+    width: 90%;
+    height: 10em;
+    border-radius:1em;
+    border: .1em solid rgb(10, 10, 10);
+    outline:none;
+    background-color:rgb(14, 14, 14);
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    padding:1em;
+    color:rgb(144, 20, 96);
+}
+form {
+    background-color:rgb(7, 7, 7);
+    padding:3em;
+    border: .1em solid rgb(10, 10, 32);
+    border-radius:1em;
+
+}
+label{
+    background-color: rgb(7, 7, 7);
+    font-size: 1.5em;
+    padding-right: 2em;
+}
+input {
+    background-color:rgb(14, 14, 14);
+    width: 13em;
+    height:2em;
+    border:.1em solid rgb(144, 20, 96);
+    border-radius: 1em;
+    color:rgb(144, 20, 96);
+    font-size:1.2em;
+
+}
+footer p {
+    background-color:#1f2833;
+    color: #66fcf1;
+}
+img {
+    max-width:100%;
+    float:left;
+    padding-right: 2em;
+}
+h1 {
+    text-align:center;
+    font-size:2.5em;
+}
+p{
+    color:#52a9a4;
+}
+h2 {
+    color:rgb(144, 20, 96);
+    font-size: 1.5em;
+}
+
+
+/* basic nav stucture taken from https://www.w3schools.com/howto/howto_css_dropdown_navbar.asp*/
+ /* Navbar container */
+.navbar {
+    overflow: hidden;
+    background-color: #1f2833;
+    font-family: Arial;
+  }
+  
+/* Links inside the navbar */
+.navbar a {
+    float: left;
+    font-size: 16px;
+    color: #66fcf1;
+    text-align: center;
+    padding: 1.5em;
+    text-decoration: none;
+    font-size:1.2em
+}
+  
+  /* The dropdown container */
+.dropdown {
+    float: left;
+    overflow: hidden;
+}
+  
+  /* Dropdown button */
+.dropdown .dropbtn {
+    font-size: 1.2em;
+    border: none;
+    outline: none;
+    color: #66fcf1;
+    padding: 1.5em 1.5em;
+    background-color: inherit;
+    margin: 0; 
+}
+  
+  /* Add a red background color to navbar links on hover */
+.navbar a:hover, .dropdown:hover .dropbtn {
+    background-color: #45a29e;
+    color: white;
+}
+  
+  /* Dropdown content (hidden by default) */
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #c4c9d0;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+}
+  
+  /* Links inside the dropdown */
+.dropdown-content a {
+    float: none;
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    text-align: left;
+}
+  
+  /* Add a grey background color to dropdown links on hover */
+.dropdown-content a:hover {
+    background-color: #45a29e;
+}
+  
+  /* Show the dropdown menu on hover */
+.dropdown:hover .dropdown-content {
+    display: block;
+} 
+
+.imgbro {
+    width: 6em;
+    height: 8em;
+}
+select {
+    color: rgb(144, 20, 96);
+    background-color:rgb(14, 14, 14);
+    width: 12em;
+    height: 2em;
+    font-size: 1.4em;
+    border: .1em solid rgb(144, 20, 96);
+    border-radius: .5em;
+}
+table {
+    border-spacing:2em;
+}
+img {
+    width: 20em;
+    height:30em;
+}
+.profile_pic {
+    width:8em;
+    height:8em;
+}
+#info {
+    padding-bottom:2em;
+}
+h1 {
+    
+    color: rgb(144, 20, 96);
+}
+.to-buy{
+    float:right;
+}
+section {
+   padding:1em;
+}
+section h2 {
+    text-decoration: underline;
+}
+h3 {
+    color: rgb(144, 20, 96);
+}
