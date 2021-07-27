@@ -1,3 +1,4 @@
+#code received from Ucc lecturer Derek Bridge
 from flask import g
 import os
 import sqlite3
