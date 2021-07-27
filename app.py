@@ -9,12 +9,7 @@ import os
 from flask_mail import Mail, Message
 from datetime import datetime 
 #####################################################################################################
-#           - Access the admin side of the website with username admin and password 123
-#           - I tried setting up an email sending thing but there was an issue with connecting to the
-#             email server which wouldn't work. I left in the code because i'm pretty sure it's all correct
-#           - I'm particularly proud of my addbook function (line 450 ish) which adds a book as well as uploads
-#             a book cover. Also I have a complaints function which a user will write and is viewable to the 
-#             admin and the admin can respond
+
 #             
 #######################################################################################################
 
@@ -273,8 +268,7 @@ def inc_quantity(book_id):
         session['cart'][book_id] = session['cart'][book_id] +1
     return redirect(url_for('cart'))
 
-#this was the easiest way to do this and i have no regrets for making an ENTIRE separate url thing just for the price, not one
-#so i didn't actually end up using this but i'm going to leave it for the moment because i think i'll need it again for checkout.
+
 @app.route('/full_price')
 def full_price():
     db = get_db()
@@ -491,8 +485,6 @@ def update_inventory():
             if db.execute(''' SELECT * FROM books WHERE author_id=?;''',(author_id,)).fetchone() is None:
                 form.author.errors.append('This book and author combo does not work')
             else:
-                #the stuff with the stuff
-                #so i wanna update the inventory not add to it
                 book_id = db.execute('''SELECT * FROM books WHERE book_name=?; ''',(book_name,)).fetchone()['book_id']
                 if db.execute('''SELECT * FROM inventory WHERE book_id=?; ''',(book_id,)).fetchone() is None:
                     db.execute('''INSERT INTO inventory (book_id,stock_left,stock_sold)VALUES(?,?,?)''',(book_id,inventory,0))
@@ -540,7 +532,7 @@ def viewComplaints():
     complaint = db.execute(''' SELECT * FROM complaints;''').fetchall()
     return render_template('viewComplaints.html', complaint=complaint)
 
-#email sending that just does not work 
+#email sending that does not work, suspected error due to Gmail security 
 '''
 @app.route('/response/<int:complaint_id>', methods=['GET','POST'])
 @admin_only
@@ -571,7 +563,7 @@ def response(complaint_id):
         return redirect(url_for('viewComplaints'))
     return render_template('response.html', form=form)
 
-#change how this looks
+
 @app.route('/viewResponse', methods=['GET','POST'])
 @login_required
 def viewResponse():
