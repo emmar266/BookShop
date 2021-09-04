@@ -1,0 +1,25 @@
+{%extends 'base.html'%}
+{% block main_content%}
+    
+    <img src="{{url_for('static',filename=image1)}}">
+    <h1>{{book['book_name']}}</h1>
+    <h2>{{author_name}}</h2>
+    <h2> Price: {{book['price']}}<h2>
+    <h2>Description</h2>
+    <p>{{book['description']}}</p>
+    
+    <p><a href="{{url_for('add_to_cart', book_id=book['book_id'])}}">Add to cart</a></p>
+    <h2>Reviews</h2>
+    <p>{{message}}</p>
+    {%if reviews is not none %}
+        <table>
+            {% for review in reviews %}
+                <tr>
+                    <td>{{review['user_name']}}</td>
+                    <td>{{review['rating']}}</td>
+                    <td>{{review['review']}}</td>
+                </tr>
+            {% endfor%}
+        </table>
+    {%endif%}
+{% endblock%}

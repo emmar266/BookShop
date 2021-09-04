@@ -1,0 +1,27 @@
+{% extends 'base.html'%}
+{% block main_content %}
+    {% if authors is none%}
+        <p>This author does not exist</p>
+    {%else%}
+        {% if books is not none%}
+            <table>
+                <tr>
+                    <th>Cover</th>
+                    <th>Title</th>
+                    <th>Author id</th>
+                    <th>Price</th>
+                    <th>Details</th>
+                </tr>
+                {% for book in books %}
+                    <tr>
+                        <td><img src="{{url_for('static',filename=book['cover'])}}" class='imgbro'></td>
+                        <td>{{book['book_name']}}</td>
+                        <td><a href="{{url_for('book',book_id=book['book_id'])}}">See more</a></td>
+                        <td>{{book['author_id']}}</td>
+                        <td>{{book['price']}}</td>
+                    </tr>
+                {% endfor%}
+            </table>
+        {%endif%}
+    {%endif%}
+{%endblock%}

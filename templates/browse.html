@@ -1,0 +1,36 @@
+{% extends 'base.html'%}
+{% block main_content %}
+    <form action='' method='POST' novalidate>
+        {{form.hidden_tag()}}
+        {{form.genre.label()}}
+        {{form.genre()}}
+        <br>
+        {{form.submit()}}
+    </form>
+    <section class='displayImg'>
+        {% if books is not none%}
+        <table>
+            <tr>
+                <th>Cover</th>
+                <th>Title</th>
+                <th>Author id</th>
+                <th>Price</th>
+                <th>Details</th>
+            </tr>
+            
+            {% for book in books %}
+                
+                <!--Ok was someone going to tell me book['cover'] was gonna work?? I swear i tried to do this like twelve times and never 
+                got it working. Wtf was wrong with me a couple weeks ago-->
+                    <tr>
+                        <td><img src="{{url_for('static',filename=book['cover'])}}" class='imgbro'></td>
+                        <td>{{book['book_name']}}</td>
+                        <td>{{book['author_id']}}</td>
+                        <td>{{book['price']}}</td>
+                        <td><a href="{{url_for('book',book_id=book['book_id'])}}">See more</a></td>
+                    </tr>
+            {% endfor%}
+        </table>
+        {%endif%}
+    </section>
+{% endblock%}

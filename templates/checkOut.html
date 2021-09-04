@@ -1,0 +1,55 @@
+{%extends 'base.html'%}
+{%block main_content%}
+<section class='to-buy'>
+    <table>
+        {% for book_id in cart %}
+            <td>{{ names[book_id]}}</td>
+            <td>x</td>
+            <td>{{ cart[book_id] }}</td>
+            
+        <!-- We do be a gobshite i can't believe it took me like 4 hours to figure out book_id = book_id wtf is wrong with me-->
+        {%endfor%}
+
+    </tr>
+    </table>
+    <p>Full Price: {{full}}</p>
+</section>
+<section>
+    <h2>Shipping info</h2>
+    <p>{{address['first_name']}}, {{address['last_name']}}</p>
+    <p>{{address['address1']}}</p>
+    <p>{{address['address2']}}</p>
+    <p>{{address['address3']}}</p>
+    <p>{{address['country']}}</p>
+    <p>{{address['postcode']}}</p>
+    <p> <a href="{{url_for('shippingInfo')}}">Change Shipping Info</a></p>
+</section>
+
+
+    <form action='' method='POST' novalidate>
+        {{form.hidden_tag()}}
+        {{form.cardNum.label}}
+        {{form.cardNum()}}
+        {% for error in form.cardNum.errors%}
+            {{error}}
+        {%endfor%}
+        <br>
+        {{form.cardHolder.label()}}
+        {{form.cardHolder()}}
+        {% for error in form.cardHolder.errors%}
+            {{error}}
+        {%endfor%}
+        <br>
+        {{form.cvv.label()}}
+        {{form.cvv()}}
+        {% for error in form.cvv.errors%}
+            {{error}}
+        {%endfor%}
+        <br>
+        {{form.submit()}}
+
+    </form>
+
+
+{%endblock%}
+
