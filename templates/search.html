@@ -1,0 +1,12 @@
+{% extends 'base.html'%}
+{% block nav_content%}
+
+    <form action='' method='POST' novalidate id='_nav'>
+        {{form.hidden_tag()}}
+        {{form.search.label}}
+        {{form.search()}}
+        {{form.submit()}}
+    </form>
+
+
+{%endblock%}

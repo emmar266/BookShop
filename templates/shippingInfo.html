@@ -1,0 +1,52 @@
+{%extends 'base.html'%}
+{% block main_content%}
+
+<form action='' method='POST' novalidate >
+{{form.hidden_tag()}}
+    <br>
+    {{form.first_name.label}}
+    {{form.first_name()}}
+    {%for error in form.first_name.errors%}
+        {{error}}
+    {%endfor%}
+    <br>
+    {{form.last_name.label}}
+    {{form.last_name()}}
+    {%for error in form.last_name.errors%}
+        {{error}}
+    {%endfor%}
+    <br>
+    {{form.address1.label}}
+    {{form.address1()}}
+    {%for error in form.address1.errors%}
+        {{error}}
+    {%endfor%}
+    <br>
+    {{form.address2.label}}
+    {{form.address2()}}
+    {%for error in form.address2.errors%}
+        {{error}}
+    {%endfor%}
+    <br>
+    {{form.address3.label}}
+    {{form.address3()}}
+    {%for error in form.address3.errors%}
+        {{error}}
+    {%endfor%}
+    <br>
+    {{form.country.label}}
+    {{form.country()}}
+    {%for error in form.country.errors%}
+        {{error}}
+    {%endfor%}
+    <br>
+    {{form.postcode.label}}
+    {{form.postcode()}}
+    {%for error in form.postcode.errors%}
+        {{error}}
+    {%endfor%}
+    <br>
+    {{form.submit()}}
+</form>
+<p>Anything with * is required</p>
+{%endblock%}    

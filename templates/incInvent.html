@@ -1,0 +1,27 @@
+{%extends 'base.html'%}
+{%block main_content%}
+    <form action='' method='POST' novalidate>
+        {{form.hidden_tag()}}
+        {{form.book_name.label}}
+        {{form.book_name()}}
+        {%for error in form.book_name.errors%}
+            {{error}}
+        {%endfor%}
+        <br>
+        {{form.author_name.label}}
+        {{form.author_name()}}
+        {%for error in form.author_name.errors%}
+            {{error}}
+        {%endfor%}
+        <br>
+        {{form.incInventory.label()}}
+        {{form.incInventory()}}
+        {%for error in form.incInventory.errors%}
+            {{error}}
+        {%endfor%}
+        <br>
+        {{form.submit()}}
+
+    </form>
+
+{%endblock%}

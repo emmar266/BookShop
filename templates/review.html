@@ -1,0 +1,37 @@
+{%extends 'base.html'%}
+{% block main_content%}
+<p>Write a review about the book, our service or both</p>
+    <form action='' method='POST' novalidate>
+        {{form.hidden_tag()}}
+        {{form.book_name.label}}
+        {{form.book_name()}}
+        {% for error in form.book_name.errors%}
+            {{error}}
+        {% endfor%}
+        <br>
+        {{form.date.label}}
+        {{form.date()}}
+        {% for error in form.date.errors%}
+            {{error}}
+        {% endfor%}
+        <section id='review'>
+            {{form.review.label}}
+            <br>
+            {{form.review()}}
+            {% for error in form.review.errors%}
+            {{error}}
+        {% endfor%}
+        </section>
+        <br>
+        {{form.rating.label}}
+        {{form.rating()}}
+        {% for error in form.rating.errors%}
+            {{error}}
+        {% endfor%}
+        <br>
+        {{form.submit()}}
+    </form>
+
+
+
+{%endblock%}

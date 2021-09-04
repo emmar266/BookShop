@@ -1,0 +1,15 @@
+{% extends 'base.html'%}
+{% block main_content%}
+    {{message}}
+    <form action='' method='POST' novalidate>
+        {{form.hidden_tag()}}
+        {{form.book_name.label}}
+        {{form.book_name()}}
+        {{form.author_name.label}}
+        {{form.author_name()}}
+        {{form.submit()}}
+
+    </form>
+
+
+{% endblock%}
