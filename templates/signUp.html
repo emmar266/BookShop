@@ -1,0 +1,33 @@
+{% extends 'base.html'%}
+{% block main_content%}
+    <form action='' method='POST' enctype="multipart/form-data" novalidate>
+        {{form.hidden_tag()}}
+        {{form.username.label}}
+        {{form.username()}}
+        {% for error in form.username.errors%}
+            {{error}}
+        {% endfor%}
+        <br>
+        {{form.password.label}}
+        {{form.password()}}
+        {% for error in form.password.errors%}
+            {{error}}
+        {%endfor%}
+        <br>
+        {{form.password2.label}}
+        {{form.password2()}}
+        {% for error in form.password2.errors%}
+            {{error}}
+        {%endfor%}
+        <BR>       
+        {{form.profile_pic.label}}
+        {{form.profile_pic()}}
+        {%for error in form.profile_pic.errors%}                
+            {{error}}
+        {%endfor%}
+        <br> 
+        {{form.submit()}}
+    </form>
+
+
+{% endblock%}

@@ -1,0 +1,67 @@
+{%extends 'base.html'%}
+{% block main_content%}
+<section id=info>
+    <h2>Overview</h2>
+    {%if image1 is not none%}
+        <img src="{{url_for('static',filename=image1)}}" class='profile_pic'>
+    {%else%}
+        {{error}} 
+    {%endif%}
+    <p><a href="{{url_for('user_pic')}}">Add/change profile pic</a></p>
+    <p>Want to logout? <a href="{{url_for('logout')}}">Logout</a></p>
+    <p>Wanna change your password?<a href="{{url_for('changePassword')}}">Change password</a></p>
+</section>
+<section>
+    <h2>Shipping info</h2>
+    <p>{{address['first_name']}}, {{address['last_name']}}</p>
+    <p>{{address['address1']}}</p>
+    <p>{{address['address2']}}</p>
+    <p>{{address['address3']}}</p>
+    <p>{{address['country']}}</p>
+    <p>{{address['postcode']}}</p>
+    <p> <a href="{{url_for('shippingInfo')}}">Change Shipping Info</a></p>
+</section>
+<section>
+    <h2>Transactions</h2>
+    <table>
+        <tr>
+            <td>Quantity purchased</td>
+            <td>Cost in euro</td>
+            <td>Date</td>
+            <td>Book</td>
+        </tr>
+    {%if transactions is not none %}
+        {% for book in books%}
+            {% for transaction in transactions %}
+            {%if book['book_id']== transaction['book_id']%}
+            <tr>
+                <td>{{transaction['quantity']}}</td>
+                <td>{{transaction['cost']}}</td>
+                <td>{{transaction['date']}}</td>
+                <td>{{book['book_name']}}</td>
+            
+            </tr>   
+            {%endif%}
+        {% endfor%}
+        {% endfor%}
+    {%endif%}
+    </table>
+</section>
+<section>
+    <h2>Reviews</h2>
+    {%if reviews is not none %}
+    {% for book in books%}
+        {% for review in reviews %}
+        {%if book['book_id']== review['book_id']%}
+            <h3>{{book['book_name']}}</h3>
+            <p>{{review['rating']}}</p>
+            <p>{{review['review']}}</p>
+            <p><a href="{{url_for('delete_review', review_id=review['review_id'])}}">Delete Review</a></p>
+            <p><a href="{{url_for('update_review', review_id=review['review_id'])}}">Update Review</a></p>
+            <br>
+            {%endif%}
+            {% endfor%}
+    {%endfor%}
+</section>
+{%endif%}
+{% endblock%}

@@ -1,0 +1,20 @@
+{%extends'base.html'%}
+{%block main_content%}
+{%if response is not none%}
+<h1>Responsed from queries</h1>
+    <table>
+        
+        {%for respons in response%}
+        <tr>
+            <td>{{respons['username']}}</td>
+            <td>{{respons['response']}}</td>
+            <td>{{respons['date']}}</td>
+            
+        </tr>
+        {%endfor%}
+    </table>
+{%else%}
+    <p>There are no complaints :)</p>
+    
+{%endif%} 
+{%endblock%}

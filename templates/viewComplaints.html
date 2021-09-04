@@ -1,0 +1,21 @@
+{%extends'base.html'%}
+{%block main_content%}
+    <h1>Complaints</h1>
+    <p>The place where customers come to moan</p>
+    {%if complaint is not none%}
+        <table>
+            {%for complain in complaint%}
+            <tr>
+                <td>{{complain['username']}}</td>
+                <td>{{complain['complaint']}}</td>
+                <td>{{complain['date']}}</td>
+                <td>{{complain['email']}}</td>
+                <td><a href="{{url_for('response', complaint_id=complain['complaint_id'])}}">Respond</a></td>
+            </tr>
+            {%endfor%}
+        </table>
+    {%else%}
+        <p>There are no complaints :)</p>
+    
+    {%endif%} 
+{%endblock%}
